@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>タイピングアプリ</title>
+    <style>
+           /* ここにCSSを記述する */
+      body {
+       font-size: 6em; 
+       text-align: center;
+      }
+
+      #count {
+       margin: 0;
+       font-weight: bold;
+       color: #888;
+      }
+
+      #wrap {
+       margin-top: 20px;
+       padding: 20px 10px;
+       background-color: #666;
+       font-weight: bold;
+       color: #fff;
+      }
+    </style>
+</head>
+<body>
+    <p id="count">60</p>
+    <div id="wrap">
+        <p id="text"></p>
+    </div>
+    <button id="start">スタート</button>
+
+    <script>
+           // ここにJavaScriptを記述する
+           
+        // 必要なHTML要素の取得
+        const wrap = document.getElementById('wrap');
+        const start = document.getElementById('start');
+
+        const textLists = [
+            'Hello World',
+            'This is my App',
+            'How are you?'
+            ]; // 複数のテキストを格納する配列
+
+
+      const createText = () => {
+  const p = document.getElementById('text');
+  const rnd = Math.floor(Math.random() * textLists.length);
+
+  textLists[rnd].split('').map(value => {
+
+      // span要素を生成する
+     const span = document.createElement('span');
+      
+      // span要素に配列の1文字ずつを当てはめる
+     span.textContent = value;
+
+      // span要素をp要素に追加していく
+     p.appendChild(span);
+     p.appendChild(value);
+  })
+
+};
+        // createText関数を実行する
+        createText();
+
+
+        const keyDown = e => {}; // キーイベント＆入力判定処理
+
+        const rankCheck = rank => {}; // ランク判定とメッセージ生成処理
+
+        const gameOver = id => {}; // ゲームの終了処理
+
+        const timer = () => {}; // タイマー処理
+
+
+        start.addEventListener('click', () => {}); // ゲームスタート時の処理
+    </script>
+</body>
+</html>
